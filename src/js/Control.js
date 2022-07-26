@@ -1,46 +1,48 @@
-import {Model} from "./model";
-import {Colors} from "./config"
-import {MeshStandardMaterial} from "three";
+import {Colors} from "./config";
 
-export class ControlModel{
-    constructor(canvas) {
-        this.app = new Model(canvas).successLoad()
-
-        this.colorPalette();
-
-    }
-
-
-    selectSwatch(color) {
-        let new_mtl;
-        new_mtl = this.setMaterial(color)
-        let modelElements = 'f1';
-
-        this.setMaterialModel(this.app.theModel, modelElements, new_mtl);
-    }
-
-    setMaterialModel(parent, type, mtl) {
-        parent.traverse((o) => {
-            if (o.isMesh && o.nameID != null) {
-                if (o.nameID == type) {
-                    o.material = mtl;
-                }
-            }
-        });
-    }
-
-    colorPalette(){
+export class Control{
+    constructor(model) {
         this.settingsContainer = document.getElementById('settings')
+        this.model = model
+        this.modelElements = model.getModelElements()
+
+        this.addModelElementsList()
+        this.addColorPalette()
+    }
+
+    addModelElementsList(){
         let wrapper = document.createElement('div');
         wrapper.classList.add('wrapper')
+        wrapper.classList.add('model-elements')
+
+        this.modelElements.forEach((item)=>{
+            let elem = document.createElement('div')
+            elem.classList.add('model-element');
+            elem.innerText = item
+            elem.dataset.element = item
+            elem.addEventListener('click', ()=>{
+                this.model.setModelElements(elem.dataset.element)
+            })
+            wrapper.appendChild(elem)
+        })
+
+        this.settingsContainer.appendChild(wrapper)
+    }
+
+    addColorPalette(){
+
+        let wrapper = document.createElement('div');
+        wrapper.classList.add('wrapper')
+        wrapper.classList.add('palette')
 
         for (let [key, value] of Object.entries(Colors)) {
-            console.log(`${key}: ${value}`);
             let elem = document.createElement('div')
             elem.classList.add('color-palette');
             elem.style.background = '#' + value;
             elem.dataset.color = key
-            elem.addEventListener('click', this.selectSwatch(value))
+            elem.addEventListener('click', ()=>{
+                this.model.selectSwatch(value)
+            })
             wrapper.appendChild(elem)
         }
 
@@ -48,4 +50,4 @@ export class ControlModel{
     }
 }
 
-global.ControlModel = ControlModel;
+global.Control = Control;

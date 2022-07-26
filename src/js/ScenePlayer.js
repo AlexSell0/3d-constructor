@@ -19,10 +19,10 @@ import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
 import {Colors} from "./config";
 
 export class ScenePlayer {
-    constructor(canvas) {
+    constructor() {
         const THREE = require('three');
         this.theModel = null;
-        this.canvas = document.getElementById(canvas);
+        this.canvas = document.getElementById('canvas');
 
         //инициализируем сцену
         this.initScene()
@@ -35,23 +35,13 @@ export class ScenePlayer {
         this.initLights()
         // Подключаем пол
         this.initFloor()
-        //Подключаем модель
-        this.initModel()
+
         //Подключаем управление
         this.initControls()
-
-        //Устанавливаем размер 3d контейнера
-        this.setSize(600, 600)
 
         this.onAnimate = this.animate.bind(this);
         this.onAnimate();
 
-    }
-
-    setSize(w, h) {
-        this.render.setPixelRatio(window.devicePixelRatio);
-        this.render.setSize(w, h);
-        this.camera.aspect = w / h;
     }
 
     initScene(){
@@ -110,16 +100,6 @@ export class ScenePlayer {
         this.scene.add(this.floor);
     }
 
-    setMaterial(color) {
-        return new MeshStandardMaterial({
-            color: parseInt('0x' + color),
-            emissive: parseInt('0x' + color),
-            specular: 0xbcbcbc,
-            metalness: 0.3,
-            roughness: 0,
-        });
-    }
-
     // функция добавляет в модель текстуры
     initColor(parent, type, mtl) {
         parent.traverse((o) => {
@@ -130,47 +110,6 @@ export class ScenePlayer {
                 }
             }
         });
-    }
-
-    initModel() {
-        this.loader = new GLTFLoader();
-
-        this.loader.load('./model/model.glb',
-            (object) => {
-                this.theModel = object.scene;
-                // Установить начальный масштаб отображения модели
-                this.theModel.scale.set(1, 1, 1);
-                this.theModel.position.set(0, 0.3, 0);
-
-
-                // Инициализируем новый материал
-                const initMap = [
-                    {childID: "back", mtl: this.setMaterial('341803')},
-                    {childID: "base", mtl: this.setMaterial('341803')},
-                    {childID: "cushions", mtl: this.setMaterial('66533C')},
-                    {childID: "legs", mtl: this.setMaterial('341803')},
-                    {childID: "supports", mtl: this.setMaterial('341803')},
-                ];
-
-                // Установим начальные значения для текстур деталей
-                for (let object of initMap) {
-                    this.initColor(this.theModel, object.childID, object.mtl);
-                }
-
-                this.colorPalette()
-
-                this.scene.add(this.theModel);
-
-            },
-            (xhr) => {
-                // called while loading is progressing
-                // console.log(`${(Math.round(xhr.loaded / xhr.total * 100))} % loaded`);
-            },
-            (error) => {
-                // called when loading has errors
-                console.error('An error happened', error);
-            }
-        )
     }
 
     // Включаем управление мышью
@@ -191,43 +130,6 @@ export class ScenePlayer {
         requestAnimationFrame(this.onAnimate)
         this.controls.update()
         this.render.render(this.scene, this.camera)
-    }
-
-    selectSwatch(color) {
-        let new_mtl;
-        new_mtl = this.setMaterial(color)
-        let modelElements = 'cushions';
-
-        this.setMaterialModel(this.theModel, modelElements, new_mtl);
-    }
-
-    setMaterialModel(parent, type, mtl) {
-        parent.traverse((o) => {
-            if (o.isMesh && o.nameID != null) {
-                if (o.nameID == type) {
-                    o.material = mtl;
-                }
-            }
-        });
-    }
-
-    colorPalette(){
-        this.settingsContainer = document.getElementById('settings')
-        let wrapper = document.createElement('div');
-        wrapper.classList.add('wrapper')
-
-        for (let [key, value] of Object.entries(Colors)) {
-            let elem = document.createElement('div')
-            elem.classList.add('color-palette');
-            elem.style.background = '#' + value;
-            elem.dataset.color = key
-            elem.addEventListener('click', ()=>{
-                this.selectSwatch(value)
-            })
-            wrapper.appendChild(elem)
-        }
-
-        this.settingsContainer.appendChild(wrapper)
     }
 
 }

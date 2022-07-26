@@ -1,2 +1,40 @@
 body {
 }
+
+#canvas{
+  width: 600px;
+  height: 600px;
+}
+
+.cavans-wrap{
+  display: flex;
+}
+
+.wrapper{
+
+  .color-palette{
+    padding: 5px;
+    width: 80px;
+    height: 80px;
+    border-radius: 15px;
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+}
+
+.model-elements{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 30px;
+
+  .model-element{
+    padding: 8px 15px;
+    font-size: 20px;
+    text-transform: uppercase;
+    border: 1px solid #000000;
+    border-radius: 11px;
+    cursor: pointer;
+  }
+}

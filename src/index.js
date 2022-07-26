@@ -1,3 +1,5 @@
 import './scss/main.scss'
 
-const model = require('./js/model')
+const ScenePlayer = require('./js/ScenePlayer')
+const Model = require('./js/Model')
+const Control = require('./js/Control')
