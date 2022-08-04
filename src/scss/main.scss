@@ -10,16 +10,71 @@ body {
   display: flex;
 }
 
-.wrapper{
+.wrapper-palette{
+  display: flex;
 
   .color-palette{
-    padding: 5px;
-    width: 80px;
-    height: 80px;
-    border-radius: 15px;
-    display: inline-block;
-    margin-right: 10px;
-    cursor: pointer;
+    .color{
+      padding: 5px;
+      width: 80px;
+      height: 80px;
+      border-radius: 15px;
+      display: inline-block;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .text{
+      font-size: 20px;
+      margin-top: 40px;
+      writing-mode: tb-rl;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      position: relative;
+      &:before{
+        content: '';
+        position: absolute;
+        top: -35px;
+        height: 30px;
+        left: 50%;
+        right: 50%;
+        border-left: 1px solid black;
+      }
+    }
+  }
+
+  .wood-facture{
+    .wood{
+      padding: 5px;
+      width: 80px;
+      height: 80px;
+      border-radius: 15px;
+      display: inline-block;
+      margin-right: 10px;
+      cursor: pointer;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .text{
+      font-size: 20px;
+      margin-top: 40px;
+      writing-mode: tb-rl;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      position: relative;
+      &:before{
+        content: '';
+        position: absolute;
+        top: -35px;
+        height: 30px;
+        left: 50%;
+        right: 50%;
+        border-left: 1px solid black;
+      }
+    }
   }
 }
 
@@ -36,5 +91,9 @@ body {
     border: 1px solid #000000;
     border-radius: 11px;
     cursor: pointer;
+
+    &.active{
+      background-color: #f3f3f3;
+    }
   }
 }

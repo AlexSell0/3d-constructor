@@ -11,12 +11,13 @@ import THREE, {
     Mesh,
     Color,
     MeshStandardMaterial,
-    CameraHelper
+    CameraHelper,
+    TextureLoader,
+    MeshBasicMaterial
 } from 'three';
 
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
-import {Colors} from "./config";
 
 export class ScenePlayer {
     constructor() {
@@ -66,11 +67,11 @@ export class ScenePlayer {
     initLights() {
         this.ambient = new AmbientLight(0xFFFFFF, 0.9);
         this.ambient.position.set(-40, 50, -22);
-        this.scene.add(this.ambient);
+        // this.scene.add(this.ambient);
         // this.scene.add(this.point);
 
         this.light = new DirectionalLight(0xffffff, 1);
-        this.light.position.set(-40, 50, -22);
+        this.light.position.set(-40, 500, -22);
         this.light.target.position.set(50, 40, 0);
         this.light.shadow.camera.near = 0.5;
         this.light.shadow.camera.far = 500;
@@ -90,7 +91,8 @@ export class ScenePlayer {
         this.floorGeometry = new PlaneGeometry(5000, 5000, 1, 1);
         this.floorMaterial = new MeshPhongMaterial({
             //Цвет пола
-            color: 0xd9d9d9,
+            // color: 0xd9d9d9,
+            color: 0xffffff,
             shininess: 1 //блеск бликов
         });
         this.floor = new Mesh(this.floorGeometry, this.floorMaterial);
@@ -130,6 +132,14 @@ export class ScenePlayer {
         requestAnimationFrame(this.onAnimate)
         this.controls.update()
         this.render.render(this.scene, this.camera)
+    }
+
+    newTexture(){
+        return new TextureLoader()
+    }
+
+    newMaterial(value){
+        return new MeshBasicMaterial(value)
     }
 
 }

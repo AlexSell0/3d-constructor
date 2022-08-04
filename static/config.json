@@ -1,0 +1,17 @@
+{
+  "colors": [
+    {"color":"66533C", "name": "Коричневый"},
+    {"color":"173A2F", "name": "Темно-зеленый"},
+    {"color":"153944", "name": "Темно-синий"},
+    {"color":"db5151", "name": "Розовый"},
+    {"color":"27548D", "name": "Синий"},
+    {"color":"438AAC", "name": "Голубой"},
+    {"color":"6a500b", "name": "Светло-коричневый"}
+  ],
+  "woods": [
+    {"name": "Egger ЛДСП 1232 ясень Лорэ", "src": "facture/wood/Egger ЛДСП 1232 ясень Лорэ.jpg"},
+    {"name": "Дерево", "src": "facture/wood/Дерево.jpg"},
+    {"name": "Темное дерево", "src": "facture/wood/Темное дерево.jpg"},
+    {"name": "Массив дуб кедр", "src": "facture/wood/Массив дуб кедр.jpg"}
+  ]
+}

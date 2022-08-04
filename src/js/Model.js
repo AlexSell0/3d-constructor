@@ -1,7 +1,6 @@
 import {ScenePlayer} from "./ScenePlayer";
-import {MeshStandardMaterial} from "three";
+import {MeshBasicMaterial, MeshStandardMaterial, TextureLoader} from "three";
 import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
-import {Colors} from "./config";
 
 export class Model extends ScenePlayer{
     constructor() {
@@ -13,7 +12,6 @@ export class Model extends ScenePlayer{
         this.setSize(600, 600)
 
         this.setModelElements('cushions')
-
     }
 
     setSize(w, h) {
@@ -72,12 +70,11 @@ export class Model extends ScenePlayer{
     }
 
     setModelElements(value){
-        console.log('aaa')
         this.modelElements = value
     }
 
     getModelElements(){
-        return ['back','base','cushions','legs','supports'];
+        return ['cushions','base','back','legs','supports'];
     }
 
     selectSwatch(color) {
@@ -96,6 +93,19 @@ export class Model extends ScenePlayer{
             }
         });
     }
+
+    setWoodTexture(type, src){
+
+        let textureLoader = new TextureLoader();
+
+        let material = new MeshBasicMaterial({
+            map: textureLoader.load(src),
+        });
+
+        this.setMaterialModel(this.theModel, type, material);
+    }
+
+
 }
 
 global.Model = Model;

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a8d7aab1-a55d-4f74-beb3-ac285f97c68f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/control.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/favicon-32x32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/model/chair.glb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/model/model.glb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../public/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/js/Control.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/js/Model.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/js/Model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/js/ScenePlayer.js" beforeDir="false" afterPath="$PROJECT_DIR$/../src/js/ScenePlayer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/js/config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/scss/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../src/scss/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2CuIqJJ5TW4SARFFWDxrguqMNi5" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a8d7aab1-a55d-4f74-beb3-ac285f97c68f" name="Changes" comment="" />
+      <created>1659646241797</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1659646241797</updated>
+      <workItem from="1659646248198" duration="21000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
